@@ -5,6 +5,8 @@ Ce projet est une application de chat en temps réel construite avec React pour 
 
 **Ceci est un projet d'essai de la technologie Socket.IO ET de React.**
 
+**Ce projet constitue un chat entre plusieurs utilisateurs connectés**
+
 ## Concepts Clés
 
 ## Hooks
