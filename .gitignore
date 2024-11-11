@@ -1,0 +1,7 @@
+.DS_Store
+.vscode
+
+back/node_modules
+back/.env
+
+front/node_modules
