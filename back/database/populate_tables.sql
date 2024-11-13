@@ -1,5 +1,10 @@
 BEGIN;
 
+INSERT INTO "admin" ("username", "email", "password") 
+VALUES 
+  ('admin1', 'HdC6o@example.com', 'password1')
+  ;
+
 INSERT INTO "users" ("username", "email", "password") 
 VALUES 
   ('user1', 'o7HsO@example.com', 'password1'),
