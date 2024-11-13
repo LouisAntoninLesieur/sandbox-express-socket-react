@@ -1,3 +1,3 @@
-import { sequelize, Users, Message } from './association.js';
+import { sequelize, Users, Message, Admin } from './association.js';
 
-export { sequelize, Users, Message };
+export { sequelize, Users, Message, Admin };

@@ -1,8 +1,7 @@
-import bcrypt from 'bcrypt';
-import { Users } from '../models/index.js';
-import jwt from 'jsonwebtoken';
-import { signupSchema } from '../utils/signupSchema.js';
-
+import { Admin } from "../models/index.js";
+import bcrypt from "bcrypt";
+import { signupSchema } from "../utils/signupSchema.js";
+import jwt from "jsonwebtoken";
 
 export const signup = async (req, res) => {
   const result = signupSchema.safeParse(req.body);
@@ -12,7 +11,7 @@ export const signup = async (req, res) => {
   try {
     const { username, email, password } = result.data;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await Users.create({
+    const user = await Admin.create({
       username,
       email,
       password: hashedPassword,
@@ -27,7 +26,7 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await Users.findOne({ where: { email } });
+    const user = await Admin.findOne({ where: { email } });
     if (!user) {
       return res.status(400).json({ error: 'Invalid email or password' });
     }

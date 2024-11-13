@@ -3,6 +3,7 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import { router as authRouter } from './src/routers/auth.routes.js';
+import { router as adminRouter } from './src/routers/admin.routes.js';
 import { createMessage } from './src/controllers/messageController.js';
 import cors from 'cors';
 
@@ -15,6 +16,11 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+// Use the adminRouter for all routes starting with '/admin'
+app.use('/admin', adminRouter);
+
+// Use the authRouter for all routes starting with '/auth'
 app.use('/auth', authRouter);
 
 // Create an HTTP server and attach the Express app to it, so we can also use Socket.IO
