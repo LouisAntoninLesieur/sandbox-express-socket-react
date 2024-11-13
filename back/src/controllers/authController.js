@@ -1,13 +1,8 @@
-import { z } from 'zod';
 import bcrypt from 'bcrypt';
 import { Users } from '../models/index.js';
 import jwt from 'jsonwebtoken';
+import { signupSchema } from '../utils/signupSchema.js';
 
-const signupSchema = z.object({
-  username: z.string(),
-  email: z.string().email(),
-  password: z.string(),
-});
 
 export const signup = async (req, res) => {
   const result = signupSchema.safeParse(req.body);
