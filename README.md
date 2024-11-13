@@ -199,6 +199,8 @@ Ce projet est une application de chat en temps réel construite avec React pour 
 
 **Ceci est un projet d'essai de la technologie Socket.IO ET de React.**
 
+**Ce projet constitue un chat entre plusieurs utilisateurs connectés**
+
 ## Concepts Clés
 
 ## Hooks
@@ -414,4 +416,3 @@ export default function Form() {
 ## Conclusion
 
 En suivant cette documentation, vous devriez avoir une meilleure compréhension des concepts clés utilisés dans ce projet, y compris les hooks, Socket.IO, et le contexte d'authentification. N'hésitez pas à explorer davantage la documentation officielle de React et Socket.IO pour approfondir vos connaissances.
-</details>
