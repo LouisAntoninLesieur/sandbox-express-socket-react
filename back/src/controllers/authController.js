@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import bcrypt from 'bcrypt';
 import { Users } from '../models/index.js';
+import jwt from 'jsonwebtoken';
 
 const signupSchema = z.object({
   username: z.string(),
@@ -39,8 +40,12 @@ export const login = async (req, res) => {
     if (!passwordMatch) {
       return res.status(400).json({ error: 'Invalid email or password' });
     }
-    // Store userId and username in localStorage
-    res.status(200).json({ userId: user.id, username: user.username });
+
+    // Generate a JWT token and send it to the client
+    const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET);
+    // Send the token, userId, and username to the client
+    res.status(200).json({ token, userId: user.id, username: user.username});
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
